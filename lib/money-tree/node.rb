@@ -215,7 +215,7 @@ module MoneyTree
     def negative?(path_part)
       relative_index = path_part.to_i
       prime_symbol_present = %w(p ').include?(path_part[-1])
-      minus_present = path_part[0] == '-'
+      minus_present = path_part[0] == "-"
       private_range = relative_index >= PRIVATE_RANGE_LIMIT
       negative_value = relative_index < 0
       prime_symbol_present || minus_present || private_range || negative_value

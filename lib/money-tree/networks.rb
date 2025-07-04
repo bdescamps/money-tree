@@ -50,7 +50,7 @@ module MoneyTree
           human_readable_part: "tb"
         },
       )
-      hsh[:testnet3] = hsh[:testnet4] = hsh[:bitcoin_testnet] = hsh[:regtest]
+      hsh[:testnet3] = hsh[:testnet4] = hsh[:regtest] = hsh[:bitcoin_testnet]
       hsh
     end
 end

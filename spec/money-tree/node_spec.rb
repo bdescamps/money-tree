@@ -122,8 +122,8 @@ describe MoneyTree::Master do
 
           context 'with version prefix' do
             it 'contains version prefix' do
-              expect(@master.to_bip(bip: 49).include?('ypub')).to be(true)
-              expect(@master.to_bip(bip: 84).include?('zpub')).to be(true)
+              expect(@master.to_bip(49).include?('ypub')).to be(true)
+              expect(@master.to_bip(84).include?('zpub')).to be(true)
             end
           end
         end
@@ -134,12 +134,12 @@ describe MoneyTree::Master do
           end
 
           it 'generate serialized private key' do
-            expect(@node.to_bip(:private, bip: 44))
+            expect(@node.to_bip(44, type: :private))
               .to eql('xprvA2EqnHNMfq9w1nDwQanUKHtfZcn4xvGAbc2ugxHMbnDdQbQUm9w6EWF7ZKmXG4NhQyFF7vp6AtoAFjxtc56osAtRKA1T9KJYwfiesFD8wiT')
           end
 
           it 'generate serialized public key' do
-            expect(@node.to_bip(bip: 44))
+            expect(@node.to_bip(44))
               .to eql('xpub6FECBnuFWCiEEGJQWcKUgRqQ7ecZNNz1xpxWVLgyA7kcHPjdJhFLnJZbQbvQSPVr2R9xVWXjoVgGUom21dw9AkQkiKKz2YYGYGUdj7RaiNA')
           end
         end
@@ -150,12 +150,12 @@ describe MoneyTree::Master do
           end
 
           it 'generate serialized private key' do
-            expect(@node.to_bip(:private, bip: 49))
+            expect(@node.to_bip(49, type: :private))
               .to eql('yprvALM988hxmYs98gPgnPQa2G7rg8Yuemm2m9Q31pyqhsdQSzpMfQnDgVMUjjNvyWvYcUwmZ8m6hFoBEd75MLygRxXws2Wvw2Rpbi3usvgSRmZ')
           end
 
           it 'generate serialized public key' do
-            expect(@node.to_bip(bip: 49))
+            expect(@node.to_bip(49))
               .to eql('ypub6ZLVXeErbvRSMAU9tQwaPQ4bEAPQ4EUt8NKdpDPTGDAPKo9WCx6UEHfxb2WH83jfwcouCGZqwW8L9f1KbUm7MJSDCQbQWiARmwKJ5Pv5J9q')
           end
         end
@@ -166,12 +166,12 @@ describe MoneyTree::Master do
           end
 
           it 'generate serialized private key' do
-            expect(@node.to_bip(:private, bip: 84))
+            expect(@node.to_bip(84, type: :private))
               .to eql('zprvAfvDLyVt5SKubEEs54xybXAXUetAttxXHqXow4nxv3b2QkBBu2Wqe7PuBk1LzedwcEfXQzpBK661EtRWDDbiKNjgv3KhNAzVJ1WxF9z2VV8')
           end
 
           it 'generate serialized public key' do
-            expect(@node.to_bip(bip: 84))
+            expect(@node.to_bip(84))
               .to eql('zpub6tuZkV2muotCoiKLB6Vyxf7G2gifJMgNf4TQjTCaUP81HYWLSZq6BuiP2zb225YP35YkdF8wzFsDy51Z2fx14tyVCKuNt35XdNB27M2AZwU')
           end
         end

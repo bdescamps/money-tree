@@ -142,14 +142,14 @@ module MoneyTree
       hex += type.to_sym == :private ? "00#{private_key.to_hex}" : public_key.compressed.to_hex
     end
 
-    def to_bip(type = :public, network: :bitcoin, bip:)
+    def to_bip(bip, type: :public, network: :bitcoin)
       raise PrivatePublicMismatch if type.to_sym == :private && private_key.nil?
       to_serialized_base58 to_serialized_hex(type, network: network, bip: bip)
     end
 
     # keep old way
     def to_bip32(type = :public, network: :bitcoin)
-      to_bip(type, network: network, bip: DEFAULT_BIP)
+      to_bip(DEFAULT_BIP, type: type, network: network)
     end
 
     def to_identifier(compressed = true)
